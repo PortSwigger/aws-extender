@@ -84,6 +84,7 @@ class BurpExtender(IBurpExtender, IScannerCheck, ITab):
     def show_errors(self, label):
         """Display error messages."""
         top_label = JLabel(label, JLabel.CENTER)
+        top_label.putClientProperty("html.disable", None)
 
         frame = JFrame(self.ext_name)
         frame.setSize(550, 300)
@@ -162,6 +163,7 @@ class BurpExtender(IBurpExtender, IScannerCheck, ITab):
         panel.add(inputs, BorderLayout.CENTER)
 
         top_label = JLabel('<html><b>Settings</b><br><br></html>')
+        top_label.putClientProperty("html.disable", None)
         top_label.setHorizontalAlignment(JLabel.CENTER)
         panel.add(top_label, BorderLayout.NORTH)
         labels.add(JLabel('AWS Access Key:'))
